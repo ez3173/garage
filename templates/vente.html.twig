@@ -1,26 +1,27 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage - Voitures en Vente</title>
-</head>
-<body>
-    <h1>Voitures en Vente</h1>
+{% extends 'base.html.twig' %}
 
-    <ul>
+{% block title %}Voitures en Vente{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Nos Voitures en Vente</h1>
+    <div class="row">
         {% for voiture in voitures %}
-            <li>
-                <h2>{{ voiture.marque }} {{ voiture.modele }}</h2>
-                <img src="{{ voiture.image }}" alt="Image de {{ voiture.marque }} {{ voiture.modele }}" width="200">
-                <p>Kilométrage : {{ voiture.km }} km</p>
-                <p>Prix : {{ voiture.prix }} €</p>
-                <a href="{{ path('vente_show', { id: voiture.id }) }}">Voir les détails</a>
-            </li>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="{{ asset('images/' ~ voiture.image) }}" class="card-img-top" alt="Image de {{ voiture.marque }} {{ voiture.modele }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ voiture.marque }} {{ voiture.modele }}</h5>
+                        <p class="card-text">Prix: {{ voiture.prix | number_format(0, ',', ' ') }} €</p>
+                        <p class="card-text">Kilométrage: {{ voiture.km }} km</p>
+                        <a href="{{ path('app_vente_show', { id: voiture.id }) }}" class="btn btn-primary">Voir Détails</a>
+                    </div>
+                </div>
+            </div>
         {% else %}
-            <p>Aucune voiture disponible actuellement.</p>
+            <p class="text-muted">Aucune voiture disponible pour le moment.</p>
         {% endfor %}
-    </ul>
-</body>
-</html>
+    </div>
+</div>
+{% endblock %}

@@ -1,20 +1,92 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter une Nouvelle Voiture</title>
-</head>
-<body>
-    <h1>Ajouter une Nouvelle Voiture</h1>
+{% extends 'base.html.twig' %}
 
-    {# Affichez le formulaire #}
+{% block title %}Ajouter une Nouvelle Voiture{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Ajouter une Nouvelle Voiture</h1>
+
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type="submit">Ajouter la Voiture</button>
-    {{ form_end(form) }}
+    <div class="mb-3">
+        {{ form_label(form.marque, 'Marque', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.marque, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.marque) }}
+    </div>
 
-    <a href="{{ path('app_vente') }}">Retour aux voitures en vente</a>
-</body>
-</html>
+    <div class="mb-3">
+        {{ form_label(form.modele, 'Modèle', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.modele, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.modele) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.image, 'Image', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.image) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.km, 'Kilométrage', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.km, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.km) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.prix, 'Prix', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.prix) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.nombreProprietaires, 'Nombre de Propriétaires', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.nombreProprietaires, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.nombreProprietaires) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.cylindree, 'Cylindrée', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.cylindree, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.cylindree) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.puissance, 'Puissance', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.puissance, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.puissance) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.carburant, 'Carburant', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.carburant, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.carburant) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.anneeMiseEnCirculation, 'Année de Mise en Circulation', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.anneeMiseEnCirculation, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.anneeMiseEnCirculation) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.transmission, 'Transmission', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.transmission, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.transmission) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_label(form.options, 'Options', {'label_attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.options, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.options) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter la Voiture</button>
+    {{ form_end(form) }}
+</div>
+{% endblock %}

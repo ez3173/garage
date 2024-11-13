@@ -1,13 +1,17 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage - Accueil</title>
-</head>
-<body>
-    <h1>Bienvenue sur notre garage</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Présentation du garage...</p>
-</body>
-</html>
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil du Garage{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Bienvenue dans notre Garage !</h1>
+        <p class="lead">Découvrez nos voitures de qualité, soigneusement sélectionnées pour vous.</p>
+        <hr class="my-4">
+        <p>Vous cherchez une voiture de rêve ? Explorez notre showroom !</p>
+        <a class="btn btn-primary btn-lg" href="{{ path('app_vente') }}" role="button">Voir nos voitures</a>
+    </div>
+</div>
+{% endblock %}

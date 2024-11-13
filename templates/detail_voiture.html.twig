@@ -1,33 +1,34 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ voiture.marque }} {{ voiture.modele }} - Détails</title>
-</head>
-<body>
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de la Voiture{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
     <h1>{{ voiture.marque }} {{ voiture.modele }}</h1>
-
-    <img src="{{ voiture.image }}" alt="Image de {{ voiture.marque }} {{ voiture.modele }}" width="400">
-
-    <ul>
-        <li>Kilométrage : {{ voiture.km }} km</li>
-        <li>Prix : {{ voiture.prix }} €</li>
-        <li>Nombre de propriétaires : {{ voiture.nombreProprietaires }}</li>
-        <li>Cylindrée : {{ voiture.cylindree }}</li>
-        <li>Puissance : {{ voiture.puissance }} CV</li>
-        <li>Carburant : {{ voiture.carburant }}</li>
-        <li>Année de mise en circulation : {{ voiture.anneeMiseEnCirculation }}</li>
-        <li>Transmission : {{ voiture.transmission }}</li>
-    </ul>
-
-    <h2>Description</h2>
-    <p>{{ voiture.description }}</p>
-
-    <h2>Options</h2>
-    <p>{{ voiture.options }}</p>
-
-    <a href="{{ path('app_vente') }}">Retour aux voitures en vente</a>
-</body>
-</html>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ asset('images/' ~ voiture.image) }}" class="img-fluid" alt="Image de {{ voiture.marque }} {{ voiture.modele }}">
+        </div>
+        <div class="col-md-6">
+            <h3>Informations sur la voiture</h3>
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Marque:</strong> {{ voiture.marque }}</li>
+                <li class="list-group-item"><strong>Modèle:</strong> {{ voiture.modele }}</li>
+                <li class="list-group-item"><strong>Prix:</strong> {{ voiture.prix | number_format(0, ',', ' ') }} €</li>
+                <li class="list-group-item"><strong>Kilométrage:</strong> {{ voiture.km }} km</li>
+                <li class="list-group-item"><strong>Propriétaires:</strong> {{ voiture.nombreProprietaires }}</li>
+                <li class="list-group-item"><strong>Cylindrée:</strong> {{ voiture.cylindree }}</li>
+                <li class="list-group-item"><strong>Puissance:</strong> {{ voiture.puissance }} ch</li>
+                <li class="list-group-item"><strong>Carburant:</strong> {{ voiture.carburant }}</li>
+                <li class="list-group-item"><strong>Année:</strong> {{ voiture.anneeCirculation }}</li>
+                <li class="list-group-item"><strong>Transmission:</strong> {{ voiture.transmission }}</li>
+            </ul>
+            <h3 class="mt-4">Description</h3>
+            <p>{{ voiture.description }}</p>
+            <h3 class="mt-4">Options</h3>
+            <p>{{ voiture.options }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
