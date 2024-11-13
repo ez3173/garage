@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Nouvelle Voiture</title>
+</head>
+<body>
+    <h1>Ajouter une Nouvelle Voiture</h1>
+
+    {# Affichez le formulaire #}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Ajouter la Voiture</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('app_vente') }}">Retour aux voitures en vente</a>
+</body>
+</html>

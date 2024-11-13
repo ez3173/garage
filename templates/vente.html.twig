@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage - Voitures en Vente</title>
+</head>
+<body>
+    <h1>Voitures en Vente</h1>
+
+    <ul>
+        {% for voiture in voitures %}
+            <li>
+                <h2>{{ voiture.marque }} {{ voiture.modele }}</h2>
+                <img src="{{ voiture.image }}" alt="Image de {{ voiture.marque }} {{ voiture.modele }}" width="200">
+                <p>Kilométrage : {{ voiture.km }} km</p>
+                <p>Prix : {{ voiture.prix }} €</p>
+                <a href="{{ path('vente_show', { id: voiture.id }) }}">Voir les détails</a>
+            </li>
+        {% else %}
+            <p>Aucune voiture disponible actuellement.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>

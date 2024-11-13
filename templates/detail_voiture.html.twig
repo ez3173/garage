@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ voiture.marque }} {{ voiture.modele }} - Détails</title>
+</head>
+<body>
+    <h1>{{ voiture.marque }} {{ voiture.modele }}</h1>
+
+    <img src="{{ voiture.image }}" alt="Image de {{ voiture.marque }} {{ voiture.modele }}" width="400">
+
+    <ul>
+        <li>Kilométrage : {{ voiture.km }} km</li>
+        <li>Prix : {{ voiture.prix }} €</li>
+        <li>Nombre de propriétaires : {{ voiture.nombreProprietaires }}</li>
+        <li>Cylindrée : {{ voiture.cylindree }}</li>
+        <li>Puissance : {{ voiture.puissance }} CV</li>
+        <li>Carburant : {{ voiture.carburant }}</li>
+        <li>Année de mise en circulation : {{ voiture.anneeMiseEnCirculation }}</li>
+        <li>Transmission : {{ voiture.transmission }}</li>
+    </ul>
+
+    <h2>Description</h2>
+    <p>{{ voiture.description }}</p>
+
+    <h2>Options</h2>
+    <p>{{ voiture.options }}</p>
+
+    <a href="{{ path('app_vente') }}">Retour aux voitures en vente</a>
+</body>
+</html>
