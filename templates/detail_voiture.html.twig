@@ -8,7 +8,7 @@
     <h1>{{ voiture.marque }} {{ voiture.modele }}</h1>
     <div class="row">
         <div class="col-md-6">
-            <img src="{{ asset('images/' ~ voiture.image) }}" class="img-fluid" alt="Image de {{ voiture.marque }} {{ voiture.modele }}">
+            <img src="{{ asset('voiture.image') }}" class="img-fluid" alt="Image de {{ voiture.marque }} {{ voiture.modele }}">
         </div>
         <div class="col-md-6">
             <h3>Informations sur la voiture</h3>
@@ -29,6 +29,24 @@
             <h3 class="mt-4">Options</h3>
             <p>{{ voiture.options }}</p>
         </div>
+        <div id="carrouselImages" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for images in voiture.images %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{ (images.path) }}" class="d-block w-100" alt="Image voiture">
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carrouselImages" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carrouselImages" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+        </div>
+        <a href="{{ path('voiture_ajouter_images', {'id': voiture.id}) }}" class="btn btn-primary">Ajouter une image</a>
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter des Images à la Voiture{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Ajouter des Images à la Voiture "{{ voiture.marque }} - {{ voiture.modele }}"</h1>
+
+    {{ form_start(form) }}
+        <div class="mb-3">
+            {{ form_label(form.path, 'URL de l\'Image', {'label_attr': {'class': 'form-label'}}) }}
+            {{ form_widget(form.path, {'attr': {'class': 'form-control'}}) }}
+            {{ form_errors(form.path) }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Ajouter l'Image</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('vente_show', {'id': voiture.id}) }}" class="btn btn-secondary mt-3">Retour à la voiture</a>
+</div>
+{% endblock %}
